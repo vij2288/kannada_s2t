@@ -32,7 +32,11 @@ async function callSarvam(audioFile) {
     let data;
     try { data = JSON.parse(raw); } catch { return { error: `Non-JSON: ${raw.slice(0, 200)}` }; }
 
-    if (!res.ok) return { error: data.message || data.error || data.detail || `HTTP ${res.status}: ${raw.slice(0, 200)}` };
+    if (!res.ok) {
+      const msg = data.message || data.error || data.detail;
+      const errStr = msg ? (typeof msg === 'string' ? msg : JSON.stringify(msg)) : `HTTP ${res.status}: ${raw.slice(0, 300)}`;
+      return { error: errStr };
+    }
     return { transcript: data.transcript ?? data.text ?? null, raw: data };
   } catch (e) {
     return { error: e.message };
@@ -52,7 +56,7 @@ async function callGoogle(audioBuffer) {
       sampleRateHertz: 48000,
       languageCode: 'kn-IN',
       enableAutomaticPunctuation: true,
-      model: 'latest_long',           // best for monologue / dictation
+      model: 'default',               // works with sync recognize; latest_long requires longRunningRecognize
     },
     audio: { content: audioBase64 },
   };
