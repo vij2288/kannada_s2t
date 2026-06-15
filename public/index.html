@@ -62,6 +62,18 @@
     .status { font-size: 15px; color: #555; min-height: 22px; }
     .timer  { font-size: 28px; font-weight: 700; color: #1A1A1A; min-height: 36px; letter-spacing: 1px; margin-top: 4px; }
 
+    .progress-wrap {
+      width: 220px; height: 8px;
+      background: #E5E7EB; border-radius: 99px;
+      overflow: hidden; margin-top: 12px;
+      display: none;
+    }
+    .progress-bar {
+      height: 100%; width: 0%;
+      background: #DC2626; border-radius: 99px;
+      transition: width 1s linear;
+    }
+
     /* Results */
     .results { width: 100%; max-width: 540px; margin-top: 36px; display: none; }
     .results-heading { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .8px; color: #AAA; margin-bottom: 14px; }
@@ -120,8 +132,8 @@
   <p class="sub">Kannada Voice Recognition Test — Sarvam vs Google</p>
 
   <div class="instruction-box">
-    <p class="kn">ಕೆಳಗಿನ ಕೆಂಪು ಗುಂಡಿಯನ್ನು ಒತ್ತಿ, ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಿ, ನಂತರ ಮತ್ತೊಮ್ಮೆ ಒತ್ತಿ.</p>
-    <p class="en">Press the red button, speak in Kannada for 2–3 minutes, then press again to stop.</p>
+    <p class="kn">ಕೆಳಗಿನ ಕೆಂಪು ಗುಂಡಿಯನ್ನು ಒತ್ತಿ, ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಿ.</p>
+    <p class="en">Press the red button and speak in Kannada. It will stop automatically.</p>
   </div>
 
   <div class="record-wrap">
@@ -132,6 +144,9 @@
     <div class="status-row">
       <div class="status" id="status">Ready</div>
       <div class="timer"  id="timer"></div>
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
     </div>
   </div>
 
@@ -190,26 +205,27 @@
         recording = true;
 
         document.getElementById('recordBtn').classList.add('recording');
-        document.getElementById('btnLabel').textContent = 'Tap to Stop';
-        document.getElementById('status').textContent   = 'Recording… speak in Kannada';
+        document.getElementById('btnLabel').textContent  = 'Tap to Stop';
+        document.getElementById('status').textContent    = 'ಮಾತನಾಡಿ… / Speaking…';
         document.getElementById('results').style.display = 'none';
         ['sarvamRating','googleRating','sarvamCopy','googleCopy'].forEach(id => document.getElementById(id).style.display = 'none');
-        document.getElementById('googleConf').style.display = 'none';
+        document.getElementById('googleConf').style.display   = 'none';
+        document.getElementById('progressWrap').style.display = 'block';
+        document.getElementById('progressBar').style.transition = 'none';
+        document.getElementById('progressBar').style.width = '0%';
 
         const MAX_SECONDS = 25;
         seconds = 0;
+
+        // Animate progress bar smoothly over MAX_SECONDS
+        setTimeout(() => {
+          document.getElementById('progressBar').style.transition = `width ${MAX_SECONDS}s linear`;
+          document.getElementById('progressBar').style.width = '100%';
+        }, 50);
+
         timerInterval = setInterval(() => {
           seconds++;
-          const remaining = MAX_SECONDS - seconds;
-          const m = String(Math.floor(seconds/60)).padStart(2,'0');
-          const s = String(seconds%60).padStart(2,'0');
-          document.getElementById('timer').textContent = `${m}:${s}`;
-
-          if (remaining <= 10 && remaining > 0) {
-            document.getElementById('status').textContent = `⏱ Auto-stopping in ${remaining}s…`;
-          }
           if (seconds >= MAX_SECONDS) {
-            document.getElementById('status').textContent = 'Time limit reached — processing…';
             stopRecording();
           }
         }, 1000);
@@ -224,7 +240,10 @@
       document.getElementById('recordBtn').classList.remove('recording');
       document.getElementById('btnLabel').textContent = 'Tap to Record';
       document.getElementById('timer').textContent    = '';
-      document.getElementById('status').textContent   = 'Sending to both APIs…';
+      document.getElementById('status').textContent   = 'Processing…';
+      document.getElementById('progressWrap').style.display = 'none';
+      document.getElementById('progressBar').style.transition = 'none';
+      document.getElementById('progressBar').style.width = '0%';
     }
 
     async function process() {
