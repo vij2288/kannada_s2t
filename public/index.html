@@ -17,19 +17,8 @@
       padding: 32px 20px 60px;
     }
 
-    h1 {
-      font-size: 26px;
-      color: #1A1A1A;
-      margin-bottom: 6px;
-      text-align: center;
-    }
-
-    .subtitle {
-      font-size: 15px;
-      color: #888;
-      margin-bottom: 28px;
-      text-align: center;
-    }
+    h1   { font-size: 26px; color: #1A1A1A; margin-bottom: 6px; text-align: center; }
+    .sub { font-size: 15px; color: #888; margin-bottom: 28px; text-align: center; }
 
     .instruction-box {
       background: #EFF6FF;
@@ -37,352 +26,274 @@
       border-radius: 14px;
       padding: 18px 20px;
       margin-bottom: 36px;
-      max-width: 520px;
+      max-width: 540px;
       width: 100%;
     }
+    .instruction-box .kn { font-size: 18px; color: #1E40AF; line-height: 1.7; margin-bottom: 8px; }
+    .instruction-box .en { font-size: 14px; color: #3B82F6; line-height: 1.6; }
 
-    .instruction-box p {
-      font-size: 16px;
-      color: #1E40AF;
-      line-height: 1.7;
-    }
-
-    .instruction-box .kannada {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    /* Record Button */
-    .record-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 12px;
-    }
+    /* Record */
+    .record-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 12px; }
 
     .record-btn {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: none;
-      background: #DC2626;
-      color: white;
+      width: 140px; height: 140px;
+      border-radius: 50%; border: none;
+      background: #DC2626; color: white;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 6px 24px rgba(220, 38, 38, 0.35);
-      transition: transform 0.15s, box-shadow 0.15s;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 6px 24px rgba(220,38,38,.35);
+      transition: transform .15s;
       -webkit-tap-highlight-color: transparent;
     }
-
-    .record-btn:active {
-      transform: scale(0.94);
-    }
-
+    .record-btn:active { transform: scale(.94); }
     .record-btn.recording {
       background: #1F2937;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 6px 24px rgba(0,0,0,.25);
       animation: pulse 1.8s ease-in-out infinite;
     }
-
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
-      50%       { box-shadow: 0 6px 48px rgba(0,0,0,0.45); }
+      0%,100% { box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+      50%      { box-shadow: 0 6px 48px rgba(0,0,0,.45); }
     }
+    .mic  { font-size: 44px; line-height: 1; }
+    .lbl  { font-size: 13px; font-weight: 600; }
 
-    .mic-icon { font-size: 44px; line-height: 1; }
-
-    .btn-label {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-
-    .status-row {
-      text-align: center;
-    }
-
-    .status {
-      font-size: 15px;
-      color: #555;
-      min-height: 22px;
-    }
-
-    .timer {
-      font-size: 28px;
-      font-weight: 700;
-      color: #1A1A1A;
-      min-height: 36px;
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
+    .status-row { text-align: center; }
+    .status { font-size: 15px; color: #555; min-height: 22px; }
+    .timer  { font-size: 28px; font-weight: 700; color: #1A1A1A; min-height: 36px; letter-spacing: 1px; margin-top: 4px; }
 
     /* Results */
-    .results {
-      width: 100%;
-      max-width: 520px;
-      margin-top: 36px;
-      display: none;
-    }
-
-    .results-heading {
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #AAA;
-      margin-bottom: 14px;
-    }
+    .results { width: 100%; max-width: 540px; margin-top: 36px; display: none; }
+    .results-heading { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .8px; color: #AAA; margin-bottom: 14px; }
 
     .result-card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      margin-bottom: 16px;
+      background: white; border-radius: 16px; padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07); margin-bottom: 16px;
     }
 
     .api-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #F3F4F6;
-      border-radius: 8px;
-      padding: 4px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #374151;
-      margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 6px;
+      border-radius: 8px; padding: 4px 10px;
+      font-size: 12px; font-weight: 600; margin-bottom: 14px;
     }
+    .api-badge.sarvam { background: #FEF3C7; color: #92400E; }
+    .api-badge.google { background: #DCFCE7; color: #166534; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot.sarvam { background: #F59E0B; }
+    .dot.google { background: #22C55E; }
 
-    .api-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10B981;
-    }
-
-    .result-text {
-      font-size: 20px;
-      line-height: 1.7;
-      color: #111;
-      min-height: 56px;
-      word-break: break-word;
-    }
-
+    .result-text { font-size: 19px; line-height: 1.8; color: #111; min-height: 56px; word-break: break-word; }
     .result-text.placeholder { color: #CCC; font-style: italic; font-size: 16px; }
-    .result-text.loading     { color: #9CA3AF; font-style: italic; font-size: 16px; }
-    .result-text.error       { color: #DC2626; font-size: 15px; }
+    .result-text.loading     { color: #9CA3AF; font-style: italic; font-size: 15px; }
+    .result-text.error       { color: #DC2626; font-size: 14px; }
 
-    .accuracy-row {
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .confidence {
+      margin-top: 8px; font-size: 12px; color: #6B7280;
     }
 
-    .accuracy-label {
-      font-size: 13px;
-      color: #6B7280;
+    .rating-row { margin-top: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .rating-label { font-size: 13px; color: #6B7280; }
+    .rating-btns  { display: flex; gap: 8px; }
+    .r-btn {
+      border: 1.5px solid #E5E7EB; background: white;
+      border-radius: 8px; padding: 5px 14px;
+      font-size: 13px; cursor: pointer; color: #374151;
+      transition: all .15s;
     }
-
-    .accuracy-btns {
-      display: flex;
-      gap: 8px;
-    }
-
-    .acc-btn {
-      border: 1.5px solid #E5E7EB;
-      background: white;
-      border-radius: 8px;
-      padding: 5px 14px;
-      font-size: 13px;
-      cursor: pointer;
-      color: #374151;
-      transition: all 0.15s;
-    }
-
-    .acc-btn:hover       { border-color: #6366F1; color: #6366F1; }
-    .acc-btn.selected    { background: #6366F1; border-color: #6366F1; color: white; }
+    .r-btn:hover    { border-color: #6366F1; color: #6366F1; }
+    .r-btn.selected { background: #6366F1; border-color: #6366F1; color: white; }
 
     .copy-btn {
-      margin-top: 14px;
-      width: 100%;
-      padding: 12px;
-      background: #F9FAFB;
-      border: 1.5px solid #E5E7EB;
-      border-radius: 10px;
-      font-size: 14px;
-      color: #374151;
-      cursor: pointer;
-      transition: all 0.15s;
+      margin-top: 14px; width: 100%;
+      padding: 12px; background: #F9FAFB;
+      border: 1.5px solid #E5E7EB; border-radius: 10px;
+      font-size: 14px; color: #374151; cursor: pointer;
+      transition: all .15s;
     }
-
-    .copy-btn:hover { background: #F3F4F6; }
+    .copy-btn:hover  { background: #F3F4F6; }
     .copy-btn.copied { background: #ECFDF5; border-color: #6EE7B7; color: #065F46; }
   </style>
 </head>
 <body>
 
   <h1>ಕನ್ನಡ ಧ್ವನಿ ಪರೀಕ್ಷೆ</h1>
-  <p class="subtitle">Kannada Voice Recognition Test</p>
+  <p class="sub">Kannada Voice Recognition Test — Sarvam vs Google</p>
 
   <div class="instruction-box">
-    <p class="kannada">ಕೆಳಗಿನ ಕೆಂಪು ಗುಂಡಿಯನ್ನು ಒತ್ತಿ, ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಿ, ನಂತರ ಮತ್ತೊಮ್ಮೆ ಒತ್ತಿ.</p>
-    <p>Press the red button, speak in Kannada for 2–3 minutes, then press again to stop.</p>
+    <p class="kn">ಕೆಳಗಿನ ಕೆಂಪು ಗುಂಡಿಯನ್ನು ಒತ್ತಿ, ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಿ, ನಂತರ ಮತ್ತೊಮ್ಮೆ ಒತ್ತಿ.</p>
+    <p class="en">Press the red button, speak in Kannada for 2–3 minutes, then press again to stop.</p>
   </div>
 
   <div class="record-wrap">
     <button class="record-btn" id="recordBtn" onclick="toggleRecording()">
-      <span class="mic-icon">🎙️</span>
-      <span class="btn-label" id="btnLabel">Tap to Record</span>
+      <span class="mic">🎙️</span>
+      <span class="lbl" id="btnLabel">Tap to Record</span>
     </button>
-
     <div class="status-row">
       <div class="status" id="status">Ready</div>
-      <div class="timer" id="timer"></div>
+      <div class="timer"  id="timer"></div>
     </div>
   </div>
 
   <div class="results" id="results">
-    <div class="results-heading">Transcription Result</div>
+    <div class="results-heading">Side-by-side Results</div>
 
-    <div class="result-card" id="sarvamCard">
-      <div class="api-badge"><span class="api-dot"></span>Sarvam AI — kn-IN</div>
-      <div class="result-text placeholder" id="sarvamResult">Result will appear here…</div>
-
-      <div class="accuracy-row" id="accuracyRow" style="display:none">
-        <span class="accuracy-label">Accuracy?</span>
-        <div class="accuracy-btns">
-          <button class="acc-btn" onclick="rate('great')">👍 Great</button>
-          <button class="acc-btn" onclick="rate('ok')">🤔 Okay</button>
-          <button class="acc-btn" onclick="rate('poor')">👎 Poor</button>
+    <!-- Sarvam -->
+    <div class="result-card">
+      <div class="api-badge sarvam"><span class="dot sarvam"></span>Sarvam AI · saarika:v1 · kn-IN</div>
+      <div class="result-text placeholder" id="sarvamText">Result will appear here…</div>
+      <div class="rating-row" id="sarvamRating" style="display:none">
+        <span class="rating-label">Accuracy?</span>
+        <div class="rating-btns">
+          <button class="r-btn" onclick="rate('sarvam','great',this)">👍 Great</button>
+          <button class="r-btn" onclick="rate('sarvam','ok',this)">🤔 Okay</button>
+          <button class="r-btn" onclick="rate('sarvam','poor',this)">👎 Poor</button>
         </div>
       </div>
+      <button class="copy-btn" id="sarvamCopy" onclick="copyText('sarvam')" style="display:none">Copy Sarvam Text</button>
+    </div>
 
-      <button class="copy-btn" id="copyBtn" onclick="copyText()" style="display:none">
-        Copy Text
-      </button>
+    <!-- Google -->
+    <div class="result-card">
+      <div class="api-badge google"><span class="dot google"></span>Google STT · latest_long · kn-IN</div>
+      <div class="result-text placeholder" id="googleText">Result will appear here…</div>
+      <div class="confidence" id="googleConf" style="display:none"></div>
+      <div class="rating-row" id="googleRating" style="display:none">
+        <span class="rating-label">Accuracy?</span>
+        <div class="rating-btns">
+          <button class="r-btn" onclick="rate('google','great',this)">👍 Great</button>
+          <button class="r-btn" onclick="rate('google','ok',this)">🤔 Okay</button>
+          <button class="r-btn" onclick="rate('google','poor',this)">👎 Poor</button>
+        </div>
+      </div>
+      <button class="copy-btn" id="googleCopy" onclick="copyText('google')" style="display:none">Copy Google Text</button>
     </div>
   </div>
 
   <script>
-    let mediaRecorder = null;
-    let audioChunks   = [];
-    let recording     = false;
-    let timerInterval = null;
-    let seconds       = 0;
-    let transcribedText = '';
+    let mediaRecorder = null, audioChunks = [], recording = false;
+    let timerInterval = null, seconds = 0;
+    const texts = { sarvam: '', google: '' };
 
-    async function toggleRecording() {
-      recording ? stopRecording() : await startRecording();
-    }
+    async function toggleRecording() { recording ? stopRecording() : await startRecording(); }
 
     async function startRecording() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-
-        // Prefer WAV-friendly format; fall back to whatever is supported
-        const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
-          ? 'audio/webm;codecs=opus'
-          : 'audio/webm';
-
-        mediaRecorder  = new MediaRecorder(stream, { mimeType });
-        audioChunks    = [];
-
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mime   = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+                       ? 'audio/webm;codecs=opus' : 'audio/webm';
+        mediaRecorder = new MediaRecorder(stream, { mimeType: mime });
+        audioChunks   = [];
         mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
-        mediaRecorder.onstop          = async () => { stream.getTracks().forEach(t => t.stop()); await processAudio(); };
-
+        mediaRecorder.onstop = async () => { stream.getTracks().forEach(t => t.stop()); await process(); };
         mediaRecorder.start(500);
         recording = true;
 
         document.getElementById('recordBtn').classList.add('recording');
-        document.getElementById('btnLabel').textContent  = 'Tap to Stop';
-        document.getElementById('status').textContent    = 'Recording… speak in Kannada';
+        document.getElementById('btnLabel').textContent = 'Tap to Stop';
+        document.getElementById('status').textContent   = 'Recording… speak in Kannada';
         document.getElementById('results').style.display = 'none';
-        document.getElementById('copyBtn').style.display = 'none';
-        document.getElementById('accuracyRow').style.display = 'none';
+        ['sarvamRating','googleRating','sarvamCopy','googleCopy'].forEach(id => document.getElementById(id).style.display = 'none');
+        document.getElementById('googleConf').style.display = 'none';
 
         seconds = 0;
         timerInterval = setInterval(() => {
           seconds++;
-          const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-          const s = String(seconds % 60).padStart(2, '0');
+          const m = String(Math.floor(seconds/60)).padStart(2,'0');
+          const s = String(seconds%60).padStart(2,'0');
           document.getElementById('timer').textContent = `${m}:${s}`;
         }, 1000);
-
-      } catch (err) {
-        document.getElementById('status').textContent = '⚠️ Microphone access denied — please allow mic and reload.';
+      } catch {
+        document.getElementById('status').textContent = '⚠️ Microphone access denied — please allow and reload.';
       }
     }
 
     function stopRecording() {
       if (!mediaRecorder || !recording) return;
-      mediaRecorder.stop();
-      recording = false;
-      clearInterval(timerInterval);
-
+      mediaRecorder.stop(); recording = false; clearInterval(timerInterval);
       document.getElementById('recordBtn').classList.remove('recording');
       document.getElementById('btnLabel').textContent = 'Tap to Record';
       document.getElementById('timer').textContent    = '';
-      document.getElementById('status').textContent   = 'Processing…';
+      document.getElementById('status').textContent   = 'Sending to both APIs…';
     }
 
-    async function processAudio() {
-      const blob     = new Blob(audioChunks, { type: 'audio/webm' });
-      const formData = new FormData();
-      formData.append('audio', blob, 'recording.webm');
+    async function process() {
+      const blob = new Blob(audioChunks, { type: 'audio/webm' });
+      const fd   = new FormData();
+      fd.append('audio', blob, 'recording.webm');
 
       document.getElementById('results').style.display = 'block';
-      const resultEl = document.getElementById('sarvamResult');
-      resultEl.className   = 'result-text loading';
-      resultEl.textContent = 'Transcribing with Sarvam AI…';
+      setLoading('sarvamText', 'Calling Sarvam AI…');
+      setLoading('googleText', 'Calling Google STT…');
 
       try {
-        const res  = await fetch('/api/transcribe', { method: 'POST', body: formData });
+        const res  = await fetch('/api/transcribe', { method: 'POST', body: fd });
         const data = await res.json();
 
-        if (data.transcript) {
-          transcribedText = data.transcript;
-          resultEl.className   = 'result-text';
-          resultEl.textContent = data.transcript;
-          document.getElementById('status').textContent = 'Done! How accurate is this?';
-          document.getElementById('accuracyRow').style.display = 'flex';
-          document.getElementById('copyBtn').style.display     = 'block';
+        // Sarvam
+        if (data.sarvam?.transcript) {
+          texts.sarvam = data.sarvam.transcript;
+          show('sarvamText', data.sarvam.transcript);
+          document.getElementById('sarvamRating').style.display = 'flex';
+          document.getElementById('sarvamCopy').style.display   = 'block';
         } else {
-          resultEl.className   = 'result-text error';
-          resultEl.textContent = `Error: ${data.error || 'No transcript returned. Check API key and try again.'}`;
-          document.getElementById('status').textContent = 'Something went wrong.';
+          showError('sarvamText', data.sarvam?.error || 'No transcript returned');
         }
-      } catch (err) {
-        resultEl.className   = 'result-text error';
-        resultEl.textContent = `Network error: ${err.message}`;
+
+        // Google
+        if (data.google?.transcript) {
+          texts.google = data.google.transcript;
+          show('googleText', data.google.transcript);
+          document.getElementById('googleRating').style.display = 'flex';
+          document.getElementById('googleCopy').style.display   = 'block';
+          if (data.google.confidence) {
+            const pct = Math.round(data.google.confidence * 100);
+            const conf = document.getElementById('googleConf');
+            conf.textContent = `Confidence: ${pct}%`;
+            conf.style.display = 'block';
+          }
+        } else {
+          showError('googleText', data.google?.error || 'No transcript returned');
+        }
+
+        document.getElementById('status').textContent = 'Done — compare the two results above';
+      } catch (e) {
+        setLoading('sarvamText', '');
+        showError('sarvamText', 'Network error: ' + e.message);
+        showError('googleText', 'Network error: ' + e.message);
         document.getElementById('status').textContent = 'Connection failed.';
       }
     }
 
-    function rate(level) {
-      document.querySelectorAll('.acc-btn').forEach(b => b.classList.remove('selected'));
-      event.target.classList.add('selected');
-      const messages = {
-        great: '✅ Excellent — this API looks viable!',
-        ok:    '🤔 Borderline — note the errors and try once more.',
-        poor:  '❌ Too many errors — we may need a different approach.'
-      };
-      document.getElementById('status').textContent = messages[level];
+    function setLoading(id, msg) {
+      const el = document.getElementById(id);
+      el.className = 'result-text loading';
+      el.textContent = msg;
+    }
+    function show(id, text) {
+      const el = document.getElementById(id);
+      el.className = 'result-text';
+      el.textContent = text;
+    }
+    function showError(id, msg) {
+      const el = document.getElementById(id);
+      el.className = 'result-text error';
+      el.textContent = '⚠️ ' + msg;
     }
 
-    function copyText() {
-      if (!transcribedText) return;
-      navigator.clipboard.writeText(transcribedText).then(() => {
-        const btn = document.getElementById('copyBtn');
+    function rate(api, level, btn) {
+      btn.closest('.rating-btns').querySelectorAll('.r-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+
+    function copyText(api) {
+      const text = texts[api];
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById(api + 'Copy');
         btn.classList.add('copied');
         btn.textContent = '✓ Copied!';
-        setTimeout(() => { btn.classList.remove('copied'); btn.textContent = 'Copy Text'; }, 2000);
+        setTimeout(() => { btn.classList.remove('copied'); btn.textContent = `Copy ${api === 'sarvam' ? 'Sarvam' : 'Google'} Text`; }, 2000);
       });
     }
   </script>
