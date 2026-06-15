@@ -18,7 +18,7 @@ async function callSarvam(audioFile) {
     contentType: 'audio/webm',
   });
   form.append('language_code', 'kn-IN');
-  form.append('model', 'saarika:v1');
+  form.append('model', 'saarika:v2.5');
   form.append('with_timestamps', 'false');
   form.append('with_disfluencies', 'false');
 

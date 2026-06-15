@@ -196,12 +196,22 @@
         ['sarvamRating','googleRating','sarvamCopy','googleCopy'].forEach(id => document.getElementById(id).style.display = 'none');
         document.getElementById('googleConf').style.display = 'none';
 
+        const MAX_SECONDS = 55;
         seconds = 0;
         timerInterval = setInterval(() => {
           seconds++;
+          const remaining = MAX_SECONDS - seconds;
           const m = String(Math.floor(seconds/60)).padStart(2,'0');
           const s = String(seconds%60).padStart(2,'0');
           document.getElementById('timer').textContent = `${m}:${s}`;
+
+          if (remaining <= 10 && remaining > 0) {
+            document.getElementById('status').textContent = `⏱ Auto-stopping in ${remaining}s…`;
+          }
+          if (seconds >= MAX_SECONDS) {
+            document.getElementById('status').textContent = 'Time limit reached — processing…';
+            stopRecording();
+          }
         }, 1000);
       } catch {
         document.getElementById('status').textContent = '⚠️ Microphone access denied — please allow and reload.';
