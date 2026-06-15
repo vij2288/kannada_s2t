@@ -155,7 +155,7 @@
 
     <!-- Google -->
     <div class="result-card">
-      <div class="api-badge google"><span class="dot google"></span>Google STT · latest_long · kn-IN</div>
+      <div class="api-badge google"><span class="dot google"></span>Google STT · default · kn-IN</div>
       <div class="result-text placeholder" id="googleText">Result will appear here…</div>
       <div class="confidence" id="googleConf" style="display:none"></div>
       <div class="rating-row" id="googleRating" style="display:none">
@@ -196,7 +196,7 @@
         ['sarvamRating','googleRating','sarvamCopy','googleCopy'].forEach(id => document.getElementById(id).style.display = 'none');
         document.getElementById('googleConf').style.display = 'none';
 
-        const MAX_SECONDS = 55;
+        const MAX_SECONDS = 25;
         seconds = 0;
         timerInterval = setInterval(() => {
           seconds++;
